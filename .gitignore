@@ -1,0 +1,26 @@
+# Ignorar archivos binarios y ejecutables
+*.exe
+*.out
+*.o
+
+# Ignorar archivos de respaldo y caché
+*~
+*.swp
+*.swo
+
+# Ignorar archivos compilados
+bin/
+build/
+
+# Ignorar archivos de configuración local
+.vscode/
+*.sln
+*.suo
+*.user
+*.user.*
+*.pidb
+
+# Ignorar archivos de dependencias y objetos generados
+*.dSYM/
+*.obj/
+*.pdb/
