@@ -1,26 +1,32 @@
-# Ignorar archivos binarios y ejecutables
-*.exe
-*.out
-*.o
+# Archivos de Code::Blocks que no son esenciales
+*.layout
+*.depend
 
-# Ignorar archivos de respaldo y caché
+# Archivos de compilación
+*.o
+*.obj
+*.exe
+*.dll
+*.out
+*.a
+*.so
+
+# Archivos temporales y de backup
 *~
 *.swp
-*.swo
+*.bak
+*.tmp
 
-# Ignorar archivos compilados
-bin/
+# Archivos de log
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos generados por depuradores
+.gdb_history
+
+# Carpetas de compilación (si usás alguna)
 build/
-
-# Ignorar archivos de configuración local
-.vscode/
-*.sln
-*.suo
-*.user
-*.user.*
-*.pidb
-
-# Ignorar archivos de dependencias y objetos generados
-*.dSYM/
-*.obj/
-*.pdb/
+bin/
