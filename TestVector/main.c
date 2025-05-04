@@ -5,6 +5,7 @@
 int main()
 {
     printf("Hello world!\n");
+
     Vector miVec;
     vectorCrear(&miVec);
     vectorOrdInsertar(&miVec, 7);
@@ -15,6 +16,7 @@ int main()
     vectorOrdInsertar(&miVec, 3);
     vectorOrdInsertar(&miVec, 5);
     vectorOrdInsertar(&miVec, 10);
+    vectorOrdInsertar(&miVec, 11);
 
 
     return 0;
