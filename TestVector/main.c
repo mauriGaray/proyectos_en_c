@@ -8,7 +8,7 @@ int main()
 
     Vector miVec;
     vectorCrear(&miVec);
-    vectorOrdInsertar(&miVec, 7);
+    vectorOrdInsertar(&miVec, 10);
     vectorOrdInsertar(&miVec, 1);
     vectorOrdInsertar(&miVec, 8);
     vectorOrdInsertar(&miVec, 2);
@@ -17,7 +17,6 @@ int main()
     vectorOrdInsertar(&miVec, 5);
     vectorOrdInsertar(&miVec, 10);
     vectorOrdInsertar(&miVec, 11);
-
 
     return 0;
 }
