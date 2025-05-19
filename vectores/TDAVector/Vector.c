@@ -35,12 +35,8 @@ int vectorInsertarAlFinal(Vector* v, int elem);
 int vectorInsertarAlInicio(Vector* v, int elem);
 int vectorInsertarEnPos(Vector* v, int elem, int pos);
 int vectorInsertarEnPos(Vector* v, int elem, int pos);
-int vectorOrdBuscar(const Vector* v, int elem){
-
-
-
-};
-int vectorDesordBuscar(const Vector* v int elem);
+int vectorOrdBuscar(const Vector* v, int elem);
+int vectorDesordBuscar(const Vector* v, int elem);
 bool vectorOrdEliminar(Vector * v, int elem);
 bool vectorEliminarDePos(Vector* v, int pos);
 void vectorOrdenar(Vector* v);
