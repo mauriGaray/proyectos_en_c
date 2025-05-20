@@ -31,14 +31,18 @@ int vectorOrdInsertar(Vector* v, int elem){
 
 
 };
-int vectorInsertarAlFinal(Vector* v, int elem);
-int vectorInsertarAlInicio(Vector* v, int elem);
-int vectorInsertarEnPos(Vector* v, int elem, int pos);
-int vectorInsertarEnPos(Vector* v, int elem, int pos);
-int vectorOrdBuscar(const Vector* v, int elem);
-int vectorDesordBuscar(const Vector* v, int elem);
-bool vectorOrdEliminar(Vector * v, int elem);
-bool vectorEliminarDePos(Vector* v, int pos);
-void vectorOrdenar(Vector* v);
-void vectorVaciar(Vector* v);
-void vectorDestruir(Vector* v);
+int EliminarElemPorPos(Vector* v, size_t pos) {
+    if (pos >= v->ce) return POS_INV;
+
+    int* elim = v->vec + pos;
+    int* ult = v->vec + v->ce - 1;
+
+    for (int* p = elim; p < ult; p++) {
+        *p = *(p + 1);
+    }
+
+    v->ce--;
+    return TODO_OK;
+};//1.3
+
+
