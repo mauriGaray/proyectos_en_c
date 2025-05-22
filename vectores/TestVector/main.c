@@ -11,7 +11,9 @@ int main() {
     v.vec[2] = 30;
     v.vec[3] = 40;
     v.vec[4] = 50;
-    v.ce = 5;
+    v.vec[5]= 30;
+    v.vec[6]= 30;
+    v.ce = 7;
 ///////////////////////////////////////////
     printf("Vector antes:\n");
     for (size_t i = 0; i < v.ce; i++) {
@@ -19,10 +21,10 @@ int main() {
     }
     printf("\n");
 ///////////////////////////////////////////
-    int res = EliminarElemPorPos(&v, 0); //
+    int res = EliminarTodasLasApariciones(&v, 30); //
 ///////////////////////////////////////////
     if (res == TODO_OK) {
-        printf("Elemento eliminado.\n");
+        printf("Elementos eliminados.\n");
     } else if (res == POS_INV) {
         printf("Posición inválida.\n");
     }
