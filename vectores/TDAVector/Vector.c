@@ -57,7 +57,6 @@ int EliminarPrimeraAparicion(Vector*v, int elem){
     return EliminarElemPorPos(v, pos);
 
 };
-
 int EliminarTodasLasApariciones(Vector* v, int elem) {
     int* lectura = v->vec;
     int* escritura = v->vec;
@@ -74,3 +73,8 @@ int EliminarTodasLasApariciones(Vector* v, int elem) {
     v->ce = escritura - v->vec;
     return TODO_OK;
 }
+
+
+
+
+

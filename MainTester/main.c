@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../TDAVector/Vector.h"
+#include "../Vectores/TDAVector/Vector.h"
 
 int main() {
 ///////////////////////////////////////////
