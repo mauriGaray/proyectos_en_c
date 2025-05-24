@@ -34,9 +34,10 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="main.c">
+		<Unit filename="string.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="string.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -37,7 +37,9 @@
 		<Unit filename="Vector.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Vector.h" />
+		<Unit filename="Vector.h">
+			<Option link="1" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -4,7 +4,6 @@
 typedef struct {
     char cad[MAX_STR];
     size_t ce;
-
 } String;
 
 #endif // STRING_H_INCLUDED
