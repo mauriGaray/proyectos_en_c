@@ -31,6 +31,18 @@ int vectorOrdInsertar(Vector* v, int elem){
 
 
 };
+void vectorMostrar(const Vector* v, const char* mensaje) {
+    printf("%s[", mensaje);
+    for (size_t i = 0; i < v->ce; i++) {
+        printf("%d", v->vec[i]);
+        if (i < v->ce - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
+
+
 int EliminarElemPorPos(Vector* v, size_t pos) {
     if (pos >= v->ce) return POS_INV;
 

@@ -1,6 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
 #define TAM 10
@@ -17,6 +18,7 @@ typedef struct {
 } Vector;
 
 bool vectorCrear(Vector* v);
+void vectorMostrar(const Vector* v, const char* mensaje);
 int vectorOrdInsertar(Vector* v, int elem);
 int EliminarElemPorPos(Vector*v, size_t pos );//1.3
 int EliminarPrimeraAparicion(Vector*v, int elem); //1.4
