@@ -9,10 +9,10 @@
 void mostrarMensajeDeEstado(int codigo) {
     switch (codigo) {
         case TODO_OK:
-            printf("Operación exitosa.\n");
+            printf("Operacion exitosa.\n");
             break;
         case POS_INV:
-            printf("Posición inválida.\n");
+            printf("Posicion inválida.\n");
             break;
         case LLENO:
             printf("Estructura llena.\n");
@@ -24,7 +24,7 @@ void mostrarMensajeDeEstado(int codigo) {
             printf("Elemento no encontrado.\n");
             break;
         default:
-            printf("Error desconocido (código %d).\n", codigo);
+            printf("Error desconocido (codigo %d).\n", codigo);
             break;
     }
 }
