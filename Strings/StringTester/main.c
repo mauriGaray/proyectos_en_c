@@ -5,22 +5,20 @@ int main()
 {
     String s1;
     String s2;
+    char str[]="abc";
+    char str2[]="abdg";
     stringInicializar(&s1);
     stringInicializar(&s2);
     //////////////////////////////////////////////////////////
 
-    stringEscribir(&s1, "Hola soy cadena 1");
-    stringEscribir(&s2, "reconocer");
-    bool res1 = esPalindromo(&s1);
-    bool res2 = esPalindromo(&s2);
+   stringEscribir(&s1,str);
+   stringEscribir(&s1,str2);
 
-    //////////////////////////////////////////////////////////
-    printf("Cadena 1: ");
-    stringMostrar(&s1);
-    printf("¿Es palindromo? %s\n", res1 ? "Si" : "No");
+   int res = mi_strncmp(str, str2, 5);
 
-    printf("Cadena 2: ");
-        stringMostrar(&s2);
-    printf("¿Es palindromo? %s\n", res2 ? "Si" : "No");
-    return 0;
+
+    printf("El numero es: %d", res);
+
+return 0;
+
 }

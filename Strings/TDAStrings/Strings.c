@@ -42,21 +42,67 @@ int stringEscribir(String* str, char*palabra){
 };
 void stringMostrar(const String* str) {
     printf("%s\n", str->cad);
-}
+};
 bool esPalindromo(const String* str){
-    const char*start = str->cad;
-    const char*end = start;
+ const char*start = str->cad;
+ const char*end = start;
+
     while(*end != '\0'){
         end++;
     }
     end--;
     while(start<end){
-        if (*start != *end) {
-            return false; // Se rompió la igualdad, no es palíndromo
+        if(*start != *end){
+            return false;
         }
         start++;
         end--;
     }
-
     return true;
 };
+int stringToInteger(const String* str) {
+    const char* ch = str->cad;
+    int num = 0;
+    int signo = 1;
+
+    // Ignorar todos los espacios en blanco al inicio
+    while (*ch == ' ') {
+        ch++;
+    }
+
+    if(*ch == '-'){
+        signo = -1;
+        ch++;
+    }else if( *ch == '+'){
+        ch++;
+    }
+
+    // Verificamos si hay al menos un dígito
+    if (*ch < '0' || *ch > '9') {
+        return NO_NUM;
+    }
+
+    while (*ch >= '0' && *ch <= '9') {
+        num = num * 10 + (*ch - '0');
+        ch++;
+    }
+
+    return signo*num;
+};
+int mi_strncmp(const char*s1, const char*s2, size_t n){
+
+    while(*s1 && *s2 && n>0){
+        if(*s1 != *s2){
+            return (unsigned char)(*s1)-(unsigned char)(*s2);
+        }
+        n--;
+        s1++;
+        s2++;
+    }
+    if(n==0) return 0;
+    if(*s1) return 1;
+    if(*s2) return -1;
+    return 0;
+};
+
+
