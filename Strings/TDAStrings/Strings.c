@@ -13,6 +13,14 @@ int stringLongitud(String*str){
     }
     return i;
 };
+size_t mi_strlen(const char*palabra){
+    size_t cont = 0;
+    while(*palabra != '\0'){
+        cont++;
+        palabra++;
+    }
+    return cont;
+};
 int stringCopiar(String* destino, String* origen){
   char* src = origen->cad;
   char* dest = destino->cad;
@@ -104,5 +112,22 @@ int mi_strncmp(const char*s1, const char*s2, size_t n){
     if(*s2) return -1;
     return 0;
 };
+int stringContarApariciones(const String* str, const char* palabra) {
+    const char* texto = str->cad;
+    size_t cont = 0;
 
+    if (texto == NULL || *texto == '\0' || palabra == NULL || *palabra == '\0') return STR_VACIO;
 
+    int palabraLen = mi_strlen(palabra);
+
+    while (*texto) {
+        if (mi_strncmp(texto, palabra, palabraLen) == 0) {
+            cont++;
+            texto += palabraLen;
+        } else {
+            texto++;
+        }
+    }
+
+    return cont;
+}
