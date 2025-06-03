@@ -1,5 +1,38 @@
 #include "Strings.h"
+int mi_strncmp(const char*s1, const char*s2, size_t n){
 
+    while(*s1 && *s2 && n>0){
+        if(*s1 != *s2){
+            return (unsigned char)(*s1)-(unsigned char)(*s2);
+        }
+        n--;
+        s1++;
+        s2++;
+    }
+    if(n==0) return 0;
+    if(*s1) return 1;
+    if(*s2) return -1;
+    return 0;
+};
+size_t mi_strlen(const char*palabra){
+    size_t cont = 0;
+    while(*palabra != '\0'){
+        cont++;
+        palabra++;
+    }
+    return cont;
+};
+char mi_toLower(char c){
+    if(c>='A' && c<='Z'){
+        return c + 32;
+    }
+    return c;
+}
+int esLetra(char c) {
+    c = mi_toLower(c);
+    return (c >= 'a' && c <= 'z');
+}
+////////////////////////////////////////////////////////////
 void stringInicializar(String*str){
     char*p= str->cad;
     *p='\0';
@@ -12,14 +45,6 @@ int stringLongitud(String*str){
         p++;
     }
     return i;
-};
-size_t mi_strlen(const char*palabra){
-    size_t cont = 0;
-    while(*palabra != '\0'){
-        cont++;
-        palabra++;
-    }
-    return cont;
 };
 int stringCopiar(String* destino, String* origen){
   char* src = origen->cad;
@@ -85,7 +110,7 @@ int stringToInteger(const String* str) {
         ch++;
     }
 
-    // Verificamos si hay al menos un d�gito
+    // Verificamos si hay al menos un dígito
     if (*ch < '0' || *ch > '9') {
         return NO_NUM;
     }
@@ -97,35 +122,38 @@ int stringToInteger(const String* str) {
 
     return signo*num;
 };
-int mi_strncmp(const char*s1, const char*s2, size_t n){
-
-    while(*s1 && *s2 && n>0){
-        if(*s1 != *s2){
-            return (unsigned char)(*s1)-(unsigned char)(*s2);
-        }
-        n--;
-        s1++;
-        s2++;
-    }
-    if(n==0) return 0;
-    if(*s1) return 1;
-    if(*s2) return -1;
-    return 0;
-};
 int stringContarApariciones(const String* str, const char* palabra) {
+    /*
+ * Condiciones de borde contempladas:
+ * 1. El texto es NULL → se retorna código de error (STR_VACIO u otro definido).
+ * 2. La palabra es NULL → se retorna código de error.
+ * 3. El texto está vacío ("") → se retorna 0 apariciones.
+ * 4. La palabra está vacía ("") → se retorna código de error (buscar una palabra vacía no tiene sentido).
+ * 5. La palabra es más larga que el texto → se retorna 0 apariciones (no puede haber coincidencias).
+ * 6. No hay apariciones de la palabra en el texto → se retorna 0.
+ * 7. Se contemplan múltiples apariciones de la palabra en el texto.
+ * 8. Se ignoran las diferencias entre mayúsculas y minúsculas (comparación case-insensitive).
+ * 9. No se cuentan coincidencias solapadas (ej. "ana" en "anana" se cuenta una vez, no dos), en este caso no lo tomo.
+ * 10. Se ignoran caracteres especiales o espacios si están dentro del texto o palabra.
+ */
+
+    if (str == NULL || str->cad == NULL || palabra == NULL) return STR_VACIO;
+
     const char* texto = str->cad;
     size_t cont = 0;
 
-    if (texto == NULL || *texto == '\0' || palabra == NULL || *palabra == '\0') return STR_VACIO;
-
     int palabraLen = mi_strlen(palabra);
+    if (palabraLen == 0) return STR_VACIO;
 
-    while (*texto) {
-        if (mi_strncmp(texto, palabra, palabraLen) == 0) {
+    size_t textoLen = mi_strlen(texto);
+    if (palabraLen > textoLen) return 0;
+
+    size_t limite = textoLen - palabraLen + 1;
+
+    for (size_t i = 0; i < limite; i++) {
+        if (mi_strncmp(texto + i, palabra, palabraLen) == 0) {
             cont++;
-            texto += palabraLen;
-        } else {
-            texto++;
+            i += palabraLen - 1;  // Pongo -1 por el i++ del for
         }
     }
 
