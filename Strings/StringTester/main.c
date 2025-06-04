@@ -6,7 +6,7 @@ int main()
     String s1;
     String s2;
     String s3;
-    char str[]="Bus bus bus bus bus bus bus bus bus bus." ;
+    char str[]="BUS bUs." ;
     char str2[]="El bus llegó, el bus partió, vi otro bus, ¡busqué el bus, y ahí estaba!";
     char str3[]="Caminé al trabajo, llovía fuerte, nadie hablaba, solo silencio.";
     char palabra[]="";
@@ -22,7 +22,8 @@ int main()
     printf("cant de veces en s1: %d\n", res);
     printf("cant de veces en s2: %d\n", res2);
     printf("cant de veces en s3 %d\n", res3);
-
+    stringATitulo(&s1);
+    stringMostrar(&s1);
     //////////////////////////////////////////////////////////
 
 

@@ -14,6 +14,16 @@ int mi_strncmp(const char*s1, const char*s2, size_t n){
     if(*s2) return -1;
     return 0;
 };
+
+int esLetra(int c) {
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        return ES_LETRA;  // Verdadero
+    }
+    return LETRA_INVALIDA;      // Falso
+}
+
+
+
 size_t mi_strlen(const char*palabra){
     size_t cont = 0;
     while(*palabra != '\0'){
@@ -22,21 +32,27 @@ size_t mi_strlen(const char*palabra){
     }
     return cont;
 };
-char mi_toLower(char c){
-    if(c>='A' && c<='Z'){
+
+int mi_tolower(int c) {
+    if (c >= 'A' && c <= 'Z') {
         return c + 32;
     }
     return c;
 }
-int esLetra(char c) {
-    c = mi_toLower(c);
-    return (c >= 'a' && c <= 'z');
+
+int mi_toUpper(int c){
+    if(c>='a' && c<='z'){
+        return c - 32;
+    }
+    return c;
 }
+
 ////////////////////////////////////////////////////////////
 void stringInicializar(String*str){
     char*p= str->cad;
     *p='\0';
 };
+
 int stringLongitud(String*str){
     char*p = str->cad;
     int i = 0;
@@ -46,6 +62,7 @@ int stringLongitud(String*str){
     }
     return i;
 };
+
 int stringCopiar(String* destino, String* origen){
   char* src = origen->cad;
   char* dest = destino->cad;
@@ -58,6 +75,7 @@ int stringCopiar(String* destino, String* origen){
   *dest= '\0';
   return EXITO;
 };
+
 int stringEscribir(String* str, char*palabra){
     char* destino = str->cad;
     char* origen = palabra;
@@ -73,9 +91,11 @@ int stringEscribir(String* str, char*palabra){
 
     return EXITO;
 };
+
 void stringMostrar(const String* str) {
     printf("%s\n", str->cad);
 };
+
 bool esPalindromo(const String* str){
  const char*start = str->cad;
  const char*end = start;
@@ -93,6 +113,7 @@ bool esPalindromo(const String* str){
     }
     return true;
 };
+
 int stringToInteger(const String* str) {
     const char* ch = str->cad;
     int num = 0;
@@ -122,10 +143,12 @@ int stringToInteger(const String* str) {
 
     return signo*num;
 };
+
+
 int stringContarApariciones(const String* str, const char* palabra) {
     /*
  * Condiciones de borde contempladas:
- * 1. El texto es NULL → se retorna código de error (STR_VACIO u otro definido).
+ * 1. El texto es NULL → se retorna código de error (PUNTERO_NULO u otro definido).
  * 2. La palabra es NULL → se retorna código de error.
  * 3. El texto está vacío ("") → se retorna 0 apariciones.
  * 4. La palabra está vacía ("") → se retorna código de error (buscar una palabra vacía no tiene sentido).
@@ -137,13 +160,13 @@ int stringContarApariciones(const String* str, const char* palabra) {
  * 10. Se ignoran caracteres especiales o espacios si están dentro del texto o palabra.
  */
 
-    if (str == NULL || str->cad == NULL || palabra == NULL) return STR_VACIO;
+    if (str == NULL || str->cad == NULL || palabra == NULL) return PUNTERO_NULO;
 
     const char* texto = str->cad;
     size_t cont = 0;
 
     int palabraLen = mi_strlen(palabra);
-    if (palabraLen == 0) return STR_VACIO;
+    if (palabraLen == 0) return PALABRA_VACIA;
 
     size_t textoLen = mi_strlen(texto);
     if (palabraLen > textoLen) return 0;
@@ -159,3 +182,13 @@ int stringContarApariciones(const String* str, const char* palabra) {
 
     return cont;
 }
+
+void stringATitulo(String*str){
+    char*palabra= str->cad;
+   *palabra = mi_toUpper(*palabra);
+    palabra++;
+    while(*palabra){
+       *palabra = mi_tolower(*palabra);
+        palabra++;
+    }
+};
