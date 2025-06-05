@@ -14,6 +14,11 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add library="../TDATexto/bin/Debug/libTDATexto.a" />
+					<Add library="../TDAPalabra/bin/Debug/libTDAPalabra.a" />
+					<Add library="../FnAuxiliaresStrings/bin/Debug/libFnAuxiliaresStrings.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/StringTester" prefix_auto="1" extension_auto="1" />

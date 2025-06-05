@@ -18,7 +18,6 @@ char* normalizar(char* cadDest, const char* cadOrig)
    Texto secL;
     textoCrear(&secL, cadOrig);
 
-puts(&secL.cur);
     Texto secE;
     textoCrear(&secE, cadDest);
 

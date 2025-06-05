@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 #define PUNTERO_NULO -3
-#define NO_ES_LETRA -2
+#define NO_ES_LETRA 0
 #define ERROR -1
 #define EXITO 0
 #define ES_LETRA 1
