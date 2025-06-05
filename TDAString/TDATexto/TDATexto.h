@@ -20,6 +20,6 @@ void textoEscribir(Texto* sec, const Palabra* pal);
 void textoEscribirCaracter(Texto* sec, char c);
 void textoCerrar(Texto* sec);
 int textoContarApariciones(const Texto* str, const char *palabra);
-
+//char* normalizar(char* cadDest, const char* cadOrig);
 
 #endif // TDATEXTO_H

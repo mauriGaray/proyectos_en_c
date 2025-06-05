@@ -50,6 +50,7 @@ void textoEscribirCaracter(Texto *sec, char c) {
      *sec->cur = c;
     sec->cur++;
 }
+
 void textoCerrar(Texto* sec)
 {
     *sec->cur = '\0';
@@ -84,3 +85,32 @@ int textoContarApariciones(const Texto* str, const char *palabra)
 
     return cont;
 }
+
+
+/*char* normalizar(char* cadDest, const char* cadOrig)
+{
+    Texto secL;
+    textoCrear(&secL, cadOrig);
+
+    Texto secE;
+    textoCrear(&secE, cadDest);
+
+    Palabra pal;
+
+    textoLeer(&secL, &pal);
+    while(!textoFin(&secL))
+    {
+        palabraATitulo(&pal);
+        textoEscribir(&secE, &pal);
+
+        if(textoLeer(&secL, &pal))
+        {
+            textoEscribirCaracter(&secE, ' ');
+        }
+    }
+
+    textoCerrar(&secE);
+
+    return cadDest;
+}
+*/
