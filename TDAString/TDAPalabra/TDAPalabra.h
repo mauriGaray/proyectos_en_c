@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include "../FnAuxiliaresStrings/AuxStrings.h"
 #define NO_NUM -2
-#define PUNTERO_NULO -1
 #define EXITO 0
 #define MAX_STR 20
 

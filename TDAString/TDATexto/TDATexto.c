@@ -6,34 +6,61 @@ void textoCrear(Texto *sec, const char *cad)
     sec->finSec = false;
 }
 
-bool textoLeer(Texto *sec, Palabra *pal) {}
+bool textoLeer(Texto *sec, Palabra *pal) {
+    while(*sec->cur && !esLetra(*sec->cur)) // *sec->cur != '\0'
+    {
+        sec->cur++;
+    }
 
-bool textoFin(const Texto *sec) {}
+    if(!*sec->cur) //*sec->cur == '\0'
+    {
+        sec->finSec = true;
+        return false;
+    }
 
-void textoEscribir(Texto *sec, const Palabra *pal) {}
+    char* iPal = pal->cad;
+    do
+    {
+        *iPal = *sec->cur;
+        iPal++;
+        sec->cur++;
+    }
+    while(*sec->cur && esLetra(*sec->cur));
 
-void textoEscribirCaracter(Texto *sec, char c) {}
+    *iPal = '\0';
 
-int stringContarApariciones(const String *str, const char *palabra)
+    return true;
+}
+
+bool textoFin(const Texto *sec) {
+    return sec->finSec;
+}
+
+void textoEscribir(Texto *sec, const Palabra *pal) {
+
+    const char* iPal = pal->cad;
+    while(*iPal)
+    {
+        *sec->cur = *iPal;
+        iPal++;
+        sec->cur++;
+    }}
+
+void textoEscribirCaracter(Texto *sec, char c) {
+     *sec->cur = c;
+    sec->cur++;
+}
+void textoCerrar(Texto* sec)
 {
-    /*
-     * Condiciones de borde contempladas:
-     * 1. El texto es NULL → se retorna código de error (PUNTERO_NULO u otro definido).
-     * 2. La palabra es NULL → se retorna código de error.
-     * 3. El texto está vacío ("") → se retorna 0 apariciones.
-     * 4. La palabra está vacía ("") → se retorna código de error (buscar una palabra vacía no tiene sentido).
-     * 5. La palabra es más larga que el texto → se retorna 0 apariciones (no puede haber coincidencias).
-     * 6. No hay apariciones de la palabra en el texto → se retorna 0.
-     * 7. Se contemplan múltiples apariciones de la palabra en el texto.
-     * 8. Se ignoran las diferencias entre mayúsculas y minúsculas (comparación case-insensitive).
-     * 9. No se cuentan coincidencias solapadas (ej. "ana" en "anana" se cuenta una vez, no dos), en este caso no lo tomo.
-     * 10. Se ignoran caracteres especiales o espacios si están dentro del texto o palabra.
-     */
+    *sec->cur = '\0';
+}
 
-    if (str == NULL || str->cad == NULL || palabra == NULL)
+int textoContarApariciones(const Texto* str, const char *palabra)
+{
+    if (str == NULL || str->cur == NULL || palabra == NULL)
         return PUNTERO_NULO;
 
-    const char *texto = str->cad;
+    const char *texto = str->cur;
     size_t cont = 0;
 
     int palabraLen = mi_strlen(palabra);
