@@ -45,3 +45,5 @@ char* normalizar(char* cadDest, const char* cadOrig)
 
     return cadDest;
 }
+// Se normaliza una cadena de caracteres, convirtiendo cada palabra a título y separando las palabras con un espacio.
+// Se utiliza una secuencia de palabras para manejar las palabras de la cadena original y escribirlas en la cadena de destino.
