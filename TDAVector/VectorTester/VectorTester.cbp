@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="../TDAVector/bin/Debug/libTDAVector.a" />
+					<Add library="../TDAVectorDinamico/bin/Debug/libTDAVectorDinamico.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -34,15 +34,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../TDAVector/Vector.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../TDAVector/Vector.h" />
-		<Unit filename="ErrorHandler/VectorErrorHandler.h" />
 		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="vectorErrorHandler.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
