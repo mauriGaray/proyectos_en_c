@@ -15,9 +15,10 @@
 #define DISMINUIR 2
 typedef struct
 {
-    int *vec;
+    void *vec;
     size_t ce;
     size_t cap;
+    size_t tamEle;
 } Vector;
 
 bool vectorCrear(Vector *vector);    // malloc
