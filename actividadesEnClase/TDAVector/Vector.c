@@ -41,7 +41,7 @@ int vectorOrdInsertar(Vector* vector, int elem)
         i++;
     }
 
-    if(i <= ult && elem == *i) // Duplicado
+    if(i <= ult && elem == *i) 
     {
         return DUPLICADO;
     }
