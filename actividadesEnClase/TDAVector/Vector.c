@@ -5,7 +5,7 @@
 
 bool redimensionarVector(Vector* vector, int operacion);
 
-
+//TODO: hacer las selecciones 
 bool vectorCrear(Vector* vector)
 {
     vector->ce = 0;
